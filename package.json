@@ -1,7 +1,7 @@
 {
   "name": "Serializer",
   "description": "Make sure specified function runs one at a time.",
-  "version": "0.1",
+  "version": "0.0.1",
   "author": "Devrim Yasar <devrim@koding.com>",
   "contributors": [ 
     { "name": "Chris Thorn", "email": "chris@koding.com" }

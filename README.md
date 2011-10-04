@@ -20,7 +20,7 @@
       
       serializedExampleFunction = serializer exampleFunction
 
-      # once you get your serialized version of your function, you use just like you use the original.
+      # once you get your serialized version of your function, you use it just like you use the original.
 
       for i in [10..10]
         serializedExampleFunction i,(r)->
