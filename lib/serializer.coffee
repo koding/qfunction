@@ -39,32 +39,3 @@ serializer = (fn,condition) ->
     next()
 
 module.exports = serializer
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
