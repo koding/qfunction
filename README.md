@@ -10,7 +10,7 @@
       
       exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{y} #{Date.now()}"),1000
       
-      # if you want to run the for loop below, they will approximately finish at the same time
+      # if you run the for loop below, they will approximately all finish at the same time
       
       for i in [0..10] 
         exampleFunction i,(r)->
@@ -20,6 +20,8 @@
       
       serializedExampleFunction = serializer exampleFunction
 
+      # once you get your serialized version of your function, you use just like you use the original.
+
       for i in [10..10]
         serializedExampleFunction i,(r)->
          console.log r
@@ -27,3 +29,8 @@
 ## Installation
 
     $ npm install serializer
+    
+## To do
+
+    - Queue can be persisted to a db (right now, pending functions will die if node process dies)
+    - Functions that don't have a callback can be serialized (however, i don't know why those need to be serialized)
