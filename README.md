@@ -6,6 +6,8 @@
   
   For example:
   
+      serializer = require "serializer"
+      
       # here is an example function that will callback after 1 second.
       
       exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{y} #{Date.now()}"),1000

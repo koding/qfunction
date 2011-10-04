@@ -9,5 +9,5 @@
   "keywords": ["underscore", "async serializer"],
   "repository": "git://github.com/koding/serializer",
   "main": "index",
-  "engines": { "node": ">= 0.4.9 < 0.7.0" }
+  "engines": { "node": ">= 0.2.9 < 0.7.0" }
 }
