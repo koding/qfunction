@@ -1,18 +1,17 @@
-serializer = require "./serialize"
+serializer = require "./lib/serializer"
 
-userAdd = (x,y,callback)-> setTimeout (()-> callback null,"res:#{Date.now()} called with #{x} and #{y}"),1000
+exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{y} #{Date.now()}"),1000
 
-chris = (x,y,callback)->
- setTimeout ()->
-  callback "im finished in 2 secs...with #{x} #{y} #{Date.now()}"
- ,2000
+# if you want to run all in parallel, they will approximately finish at the same time
 
+for i in [0..10] 
+  exampleFunction i,(r)->
+   console.log r
 
-serializedUseradd = serializer userAdd
+# now you can serialize this function, and it will finish in 10 seconds, running one after another
 
-sChris = serializer chris
+serializedExampleFunction = serializer exampleFunction
 
-
-for i in [50..60]
-  sChris i,i+1,(r)->
+for i in [10..10]
+  serializedExampleFunction i,(r)->
    console.log r
