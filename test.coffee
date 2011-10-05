@@ -1,4 +1,4 @@
-serializer = require "./index"
+qfunction = require "qfunction"
 
 exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{Date.now()}"),1000
 
@@ -10,8 +10,8 @@ for i in [0..10]
 
 # now you can serialize this function, and it will finish in 10 seconds, running one after another
 
-serializedExampleFunction = serializer exampleFunction
+queuedExampleFunction = qfunction exampleFunction
 
 for i in [0..10]
-  serializedExampleFunction i,(r)->
+  queuedExampleFunction i,(r)->
    console.log "queued function out:",r
