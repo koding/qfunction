@@ -6,35 +6,17 @@
   
   For example:
   
-      serializer = require "serializer"
+      qfunction = require "qfunction"
       
       # here is an example function that will callback after 1 second.
-      
-      exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{y} #{Date.now()}"),1000
-      
-      
-      for i in [0..10] 
-        exampleFunction i,(r)->
-         console.log r
-      
-      # now you can serialize this function, and it will finish in 10 seconds, running one after another
-      
-      serializedExampleFunction = serializer exampleFunction
 
-      # once you get your serialized version of your function, you use it just like you use the original.
-
-      for i in [10..10]
-        serializedExampleFunction i,(r)->
-         console.log r
-
-
-		exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{Date.now()}"),1000
+			exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{Date.now()}"),1000
 
       # if you run the for-loop below, they will approximately all finish at the same time
 
-		for i in [0..10] 
-		  exampleFunction i,(r)->
-		   console.log "regular function out:",r
+			for i in [0..10] 
+			  exampleFunction i,(r)->
+			   console.log "regular function out:",r
 
 		# now you can create a queued version of this function, and it will finish in 10 seconds, running one after another
 
