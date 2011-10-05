@@ -1,13 +1,13 @@
 {
-  "name": "Serializer",
+  "name": "qfunction",
   "description": "Make sure specified function runs one at a time.",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "author": "Devrim Yasar <devrim@koding.com>",
   "contributors": [ 
     { "name": "Chris Thorn", "email": "chris@koding.com" }
   ],
   "keywords": ["underscore", "async serializer"],
-  "repository": "git://github.com/koding/serializer",
+  "repository": "git://github.com/koding/qfunction",
   "main": "index",
   "engines": { "node": ">= 0.2.9 < 0.7.0" }
 }

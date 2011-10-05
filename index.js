@@ -1,1 +1,1 @@
-module.exports = require("./lib/serializer");
+module.exports = require("./lib/qfunction");
