@@ -4,22 +4,32 @@
   
   You want to have very simple queue, that will register each incoming function, and execute it one by one.
   
-  For example:
+  For example (in coffeescript, for js version, scroll below):
   
 		qfunction = require "qfunction"
 
-		# here is an example function that will callback after 1 second.
-
+		#
+		# here is an example function 
+		# that will callback after 1 second.
+		#
+		
 		exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{Date.now()}"),1000
 
-		# if you run the for-loop below, they will approximately all finish at the same time
-
+		#
+		# if you run the for-loop below, 
+		# they will approximately all finish at the same time
+		#
+		
 		for i in [0..10] 
 		 exampleFunction i,(r)->
 		  console.log "regular function out:",r
-
-		# now you can create a queued version of this function, and it will finish in 10 seconds, running one after another
-
+		
+		#
+		# now you can create a queued version of this function, 
+		# and it will finish in 10 seconds, 
+		# running one after another
+		#
+		
 		queuedExampleFunction = qfunction exampleFunction
 
 		for i in [0..10]
@@ -35,3 +45,27 @@
 
     - Queue can be persisted to a db (right now, pending functions will die if node process dies)
     - Functions that don't have a callback can be serialized (however, i don't know why those need to be serialized)
+
+## Example in JS
+
+		var exampleFunction, i, qfunction, queuedExampleFunction;
+		qfunction = require("qfunction");
+
+		exampleFunction = function(x, callback) {
+		  return setTimeout((function() {
+		    return callback("Finished in 1 sec...with " + x + " " + (Date.now()));
+		  }), 1000);
+		};
+
+		for (i = 0; i <= 10; i++) {
+		  exampleFunction(i, function(r) {
+		    return console.log("regular function out:", r);
+		  });
+		}
+
+		queuedExampleFunction = qfunction(exampleFunction);
+		for (i = 0; i <= 10; i++) {
+		  queuedExampleFunction(i, function(r) {
+		    return console.log("queued function out:", r);
+		  });
+		}
