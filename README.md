@@ -6,17 +6,17 @@
   
   For example:
   
-      qfunction = require "qfunction"
-      
-      # here is an example function that will callback after 1 second.
+		qfunction = require "qfunction"
 
-			exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{Date.now()}"),1000
+		# here is an example function that will callback after 1 second.
 
-      # if you run the for-loop below, they will approximately all finish at the same time
+		exampleFunction = (x,callback)-> setTimeout (()-> callback "Finished in 1 sec...with #{x} #{Date.now()}"),1000
 
-			for i in [0..10] 
-			  exampleFunction i,(r)->
-			   console.log "regular function out:",r
+		# if you run the for-loop below, they will approximately all finish at the same time
+
+		for i in [0..10] 
+		 exampleFunction i,(r)->
+		  console.log "regular function out:",r
 
 		# now you can create a queued version of this function, and it will finish in 10 seconds, running one after another
 
